@@ -1,0 +1,177 @@
+/* Theme CSS Variables */
+
+/* Light Mode (Default) */
+:root,
+[data-mode="light"] {
+  /* Base colors */
+  --body: #f8fafc;
+  --body-secondary: #f1f5f9;
+  --text: #0f172a;
+  --exp-text-color: #334155;
+  --highlight: #e2e8f0;
+
+  /* Emphasis colors */
+  --dark: #1e1b4b;
+  --secondary-text: #64748b;
+  --image-highlight: #607d8b;
+
+  /* Component colors */
+  --comp-img-highlight: #f1f5f9;
+  --jacket-color: #e2e8f0;
+  --header-color: rgba(255, 255, 255, 0.85);
+  --splash-bg: #1e1b4b;
+
+  /* Additional customization */
+  --primary-accent: #4f46e5;
+  --primary-accent-light: #6366f1;
+  --link-color: #4f46e5;
+  --button-color: #4f46e5;
+  --hover-color: #6366f1;
+
+  /* Card & Surface */
+  --card-bg: #ffffff;
+  --card-bg-hover: #f8fafc;
+  --card-border: #e2e8f0;
+  --card-shadow: rgba(0, 0, 0, 0.08);
+  --card-shadow-hover: rgba(0, 0, 0, 0.15);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  --gradient-text: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #4f46e5 100%);
+  --gradient-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+  --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 245, 249, 0.7) 100%);
+
+  /* Glow effects */
+  --glow-primary: rgba(79, 70, 229, 0.15);
+  --glow-accent: rgba(124, 58, 237, 0.1);
+
+  /* Animation */
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-duration: 0.3s;
+}
+
+/* Dark Mode - Modern, High Contrast */
+[data-mode="dark"] {
+  /* Base colors - Slightly warmer dark for eye comfort */
+  --body: #0c0a1d;
+  --body-secondary: #12102a;
+  --text: #f1f5f9;
+  --exp-text-color: #cbd5e1;
+  --highlight: #1e1b4b;
+
+  /* Emphasis colors */
+  --dark: #1e1b4b;
+  --secondary-text: #94a3b8;
+  --image-highlight: #a5b4fc;
+
+  /* Component colors */
+  --comp-img-highlight: #1e1b4b;
+  --jacket-color: #312e81;
+  --header-color: rgba(12, 10, 29, 0.85);
+  --splash-bg: #0c0a1d;
+
+  /* Additional customization - Brighter accents for dark mode */
+  --primary-accent: #818cf8;
+  --primary-accent-light: #a5b4fc;
+  --link-color: #a5b4fc;
+  --button-color: #6366f1;
+  --hover-color: #818cf8;
+
+  /* Card & Surface - Glassmorphism effect */
+  --card-bg: rgba(30, 27, 75, 0.6);
+  --card-bg-hover: rgba(49, 46, 129, 0.7);
+  --card-border: rgba(129, 140, 248, 0.2);
+  --card-shadow: rgba(0, 0, 0, 0.4);
+  --card-shadow-hover: rgba(129, 140, 248, 0.15);
+
+  /* Gradients - More vibrant for dark mode */
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --gradient-text: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #818cf8 100%);
+  --gradient-surface: linear-gradient(180deg, rgba(30, 27, 75, 0.8) 0%, rgba(12, 10, 29, 0.9) 100%);
+  --gradient-card: linear-gradient(145deg, rgba(49, 46, 129, 0.4) 0%, rgba(30, 27, 75, 0.6) 100%);
+
+  /* Glow effects - More pronounced in dark mode */
+  --glow-primary: rgba(129, 140, 248, 0.25);
+  --glow-accent: rgba(139, 92, 246, 0.2);
+}
+
+/* Smooth transition for theme changes */
+html {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body {
+  background-color: var(--body);
+  color: var(--text);
+}
+
+/* Dark mode specific enhancements */
+[data-mode="dark"] body {
+  /* Subtle radial gradient for depth */
+  background-image:
+    radial-gradient(ellipse at top, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Dark mode card glow effect on hover */
+[data-mode="dark"] .card {
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+[data-mode="dark"] .card:hover {
+  border-color: rgba(129, 140, 248, 0.4);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(129, 140, 248, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Dark mode text enhancements */
+[data-mode="dark"] h1,
+[data-mode="dark"] h2,
+[data-mode="dark"] h3 {
+  text-shadow: 0 0 40px rgba(129, 140, 248, 0.15);
+}
+
+/* Dark mode link hover glow */
+[data-mode="dark"] a:hover {
+  text-shadow: 0 0 20px var(--glow-primary);
+}
+
+/* Dark mode button enhancements */
+[data-mode="dark"] .btn-primary {
+  background: var(--gradient-primary);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+[data-mode="dark"] .btn-primary:hover {
+  box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
+}
+
+[data-mode="dark"] .btn-outline {
+  border-color: var(--primary-accent);
+  color: var(--primary-accent);
+}
+
+[data-mode="dark"] .btn-outline:hover {
+  background: var(--gradient-primary);
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* Dark mode scrollbar */
+[data-mode="dark"]::-webkit-scrollbar-track {
+  background: var(--body-secondary);
+}
+
+[data-mode="dark"]::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4f46e5, #7c3aed);
+  border-radius: 4px;
+}
+
+[data-mode="dark"]::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+}
